@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localizador</title>
+    <title>Localização Automática</title>
     <script>
         function enviarLocalizacao() {
-            if ("geolocation" in navigator) {
+            if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     let latitude = position.coords.latitude;
                     let longitude = position.coords.longitude;
                     let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-                    // Enviar a localização para você (WhatsApp)
-                    window.location.href = `https://api.whatsapp.com/send?phone=558197921133&text=Minha localização: ${linkMaps}`;
-                }, function(error) {
-                    alert("Erro ao obter localização: " + error.message);
+                    
+                    // Substitua SEU_NUMERO pelo seu número de WhatsApp com DDD
+                    let whatsapp = `https://api.whatsapp.com/send?phone=SEU_NUMERO&text=Minha localização: ${linkMaps}`;
+                    
+                    // Redireciona automaticamente para o WhatsApp
+                    window.location.href = whatsapp;
                 });
             } else {
-                alert("Geolocalização não suportada pelo navegador.");
+                alert("Geolocalização não suportada.");
             }
         }
     </script>
 </head>
 <body onload="enviarLocalizacao()">
-    <h2>Coletando localização...</h2>
+    <h2>Obtendo localização...</h2>
 </body>
 </html>
