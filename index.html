@@ -7,24 +7,37 @@
     <script>
         function enviarLocalizacao() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    let latitude = position.coords.latitude;
-                    let longitude = position.coords.longitude;
-                    let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                    
-                    // Substitua SEU_NUMERO pelo seu número de WhatsApp com DDD
-                    let whatsapp = `https://api.whatsapp.com/send?phone=558197921133&text=Minha localização: ${linkMaps}`;
-                    
-                    // Redireciona automaticamente para o WhatsApp
-                    window.location.href = whatsapp;
-                });
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        let latitude = position.coords.latitude;
+                        let longitude = position.coords.longitude;
+                        let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+                        // Substitua SEU_NUMERO pelo seu número de WhatsApp no formato internacional (ex: 5511999999999)
+                        let whatsapp = `https://wa.me/SEU_NUMERO?text=Minha localização: ${linkMaps}`;
+
+                        // Redireciona automaticamente para o WhatsApp
+                        window.location.replace(whatsapp);
+                    },
+                    function(error) {
+                        alert("Erro ao obter localização. Permita o acesso à localização no navegador.");
+                    },
+                    {
+                        enableHighAccuracy: true, 
+                        timeout: 10000, 
+                        maximumAge: 0
+                    }
+                );
             } else {
-                alert("Geolocalização não suportada.");
+                alert("Seu navegador não suporta geolocalização.");
             }
         }
+
+        // Inicia automaticamente quando a página carrega
+        window.onload = enviarLocalizacao;
     </script>
 </head>
-<body onload="enviarLocalizacao()">
-    <h2>Obtendo localização...</h2>
+<body>
+    <h2>Aguarde, enviando sua localização...</h2>
 </body>
 </html>
