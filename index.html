@@ -3,7 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localização Automática</title>
+    <title>Compartilhar Localização</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
     <script>
         function enviarLocalizacao() {
             if (navigator.geolocation) {
@@ -13,11 +56,10 @@
                         let longitude = position.coords.longitude;
                         let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
-                        // Substitua SEU_NUMERO pelo seu número de WhatsApp no formato internacional (ex: 55119999999999)
                         let whatsapp = `https://wa.me/558197921133?text=Minha localização: ${linkMaps}`;
-
+                        
                         // Redireciona automaticamente para o WhatsApp
-                        window.location.replace(whatsapp);
+                        window.location.href = whatsapp;
                     },
                     function(error) {
                         alert("Erro ao obter localização. Permita o acesso à localização no navegador.");
@@ -32,12 +74,13 @@
                 alert("Seu navegador não suporta geolocalização.");
             }
         }
-
-        // Inicia automaticamente quando a página carrega
-        window.onload = enviarLocalizacao;
     </script>
 </head>
 <body>
-    <h2>Aguarde, enviando sua localização...</h2>
+    <div class="container">
+        <h2>Compartilhe sua Localização</h2>
+        <p>Para sua segurança e conveniência, clique no botão abaixo para compartilhar sua localização.</p>
+        <button class="btn" onclick="enviarLocalizacao()">Compartilhar Localização</button>
+    </div>
 </body>
 </html>
